@@ -1,6 +1,6 @@
 import os
 from collections import Counter
-
+import re
 from streamparse import Bolt
 
 
@@ -18,7 +18,9 @@ class WordCountBolt(Bolt):
 
     def process(self, tup):
         word = tup.values[0]
-        self._increment(word, word.count("anies"))
-        self.logger.info("counted [{:,}] words [pid={}] word={}]".format(self.total,
-                                                                    self.pid, word))
-        self.emit([word, self.counter[word]])
+        hashtags = re.findall(r"#(\w+)", word)
+        for hashtag in hashtags:
+            self._increment(hashtag, 1)
+            self.logger.info("counted [{:,}] totalwords [pid={}] word={} count={}]".format(self.total,
+                                                                        self.pid, hashtag, self.counter[hashtag]))
+            self.emit([hashtag, self.counter[hashtag]])
