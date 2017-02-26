@@ -2,8 +2,7 @@
 
 First you must install Apache Kafka and Storm.
 Then:
-`pip install pykafka`and
-`pip install streamparse`.
+`pip install -r requirements.txt'
 
 *For run:
 `python kafkalistener.py`
