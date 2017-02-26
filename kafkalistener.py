@@ -35,6 +35,6 @@ class StdOutListener(StreamListener):
 
 l = StdOutListener()
 stream = Stream(auth,l)
-stream.filter(locations=[106.72,-6.23,106.93,-6.129])
+stream.filter(locations=[105.107,-8.17,114.808,-5.96])
 
 
