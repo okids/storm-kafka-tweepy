@@ -2,7 +2,7 @@
 
 First you must install Apache Kafka and Storm.
 Then:
-`pip install -r requirements.txt'
+`pip install -r requirements.txt`
 
 *For run:
 `python kafkalistener.py`
